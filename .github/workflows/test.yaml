@@ -21,4 +21,10 @@ jobs:
           python-version: ${{ matrix.python-version }} # 파이썬 버전 동적 주입
           cache: pip
       - run: pip install -r requirements.txt
-      - run: pytest -v
+      - run: pytest --cov=src --cov-report=html --junitxml=report.xml
+
+      - uses: actions/upload-artifact@v4
+        if: always()                            # 이전 Step이 실패하더라도 무조건 실행
+        with:
+          name: coverage-${{ matrix.os }}-${{ matrix.python-version }}
+          path: htmlcov/                        # 업로드할 폴더 경로
