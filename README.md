@@ -1,1 +1,1 @@
-![test](https://github.com/dohyeon5154/cicd/actions/workflows/test.yml/badge.svg)
+![test](https://github.com/dohyeon5154/cicd/actions/workflows/test.yaml/badge.svg)
